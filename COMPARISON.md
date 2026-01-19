@@ -256,9 +256,9 @@
 
 ---
 
-## 🎓 For Your Thesis/Paper
+## 🎓 For Paper
 
-### Use These Tables To Show:
+### Tables To Show:
 
 1. **Table 2**: "We replicated the exact architecture from [baseline paper]"
 2. **Table 4**: "We enhanced data augmentation with Vertical Flip, Mixup, and Label Smoothing"
@@ -289,5 +289,3 @@ in 4.8 hours with mixed precision on Kaggle P100 GPU."
 ```
 
 ---
-
-**This simple comparison shows EXACTLY what you did vs the paper!** ✅
