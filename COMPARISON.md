@@ -94,10 +94,13 @@
 | Component | Baseline Paper | Our Implementation | Difference |
 |-----------|---------------|-------------------|------------|
 | **Method** | Weighted Average | Weighted Average | ✅ Same |
-| **Weight Optimization** | Random Search (2000 trials) | Random Search (2000 trials) | ✅ Same |
-| **Early Stopping** | Not mentioned | **100 patience** | ⭐ **NEW** |
+| **Weight Optimization** | Random Search | Random Search | ✅ Same |
+| **Max Trials** | 2000 | 2000 | ✅ Same |
+| **Early Stopping** | 100 non-improving | 100 non-improving | ✅ Same |
+| **Actual Trials Run** | Not reported | **~800** | ✅ **We measured** |
 | **Weight Selection** | Based on validation AUC | Based on validation AUC | ✅ Same |
-| **Actual Trials Run** | ~2000 | ~800 (early stopped) | ⭐ **60% fewer** |
+
+*Note: Both use identical ensemble strategy. We report actual trials executed (~800), which paper doesn't mention.*
 
 ---
 
@@ -188,11 +191,12 @@
 | Contribution | Baseline Paper | Our Implementation | Novelty |
 |--------------|---------------|-------------------|---------|
 | **Vertical Flip** | ❌ Not mentioned | ✅ **Added to augmentation** | ⭐ **Additional augmentation** |
-| **Efficient Ensemble** | Max 2000 trials | **~800 trials (early stop)** | ⭐ **60% more efficient** |
 | **Mixup for Melanoma** | ❌ Not used | ✅ **α = 0.2** | ⭐ **Novel application** |
 | **Label Smoothing** | ❌ Not used | ✅ **ε = 0.1** | ⭐ **Added regularization** |
 | **Mixed Precision** | ❌ Not mentioned | ✅ **FP16 enabled** | ⭐ **2-3× speedup** |
 | **Bootstrap CI** | ❌ Not mentioned | ✅ **n=100 iterations** | ⭐ **Statistical validation** |
+| **Training Time** | ❌ Not reported | ✅ **4h 48min measured** | ⭐ **Transparency** |
+| **Actual Trials** | ❌ Not reported | ✅ **~800 reported** | ⭐ **Transparency** |
 
 ---
 
@@ -225,11 +229,11 @@
 | Area | Improvement | Impact |
 |------|-------------|--------|
 | **Augmentation** | Added Vertical Flip + Mixup + Label Smoothing | Better generalization |
-| **Ensemble** | Early stopping (actual ~800 vs max 2000 trials) | 60% fewer trials |
 | **Performance** | Mixed Precision (FP16) | 2-3× training speed |
 | **CBIR** | Better mAP (0.9840 vs 0.9538) | +3.17% improvement |
 | **Code Quality** | Production-ready | Maintainable & reproducible |
 | **Documentation** | Complete (README + comparisons) | Research-grade |
+| **Transparency** | Reported training time & actual trials | Reproducibility |
 
 ### ⚠️ What Needs Improvement
 
@@ -256,13 +260,13 @@
 
 ---
 
-## 🎓 For Paper
+## 🎓 For Your Thesis/Paper
 
-### Tables To Show:
+### Use These Tables To Show:
 
 1. **Table 2**: "We replicated the exact architecture from [baseline paper]"
 2. **Table 4**: "We enhanced data augmentation with Vertical Flip, Mixup, and Label Smoothing"
-3. **Table 5**: "We improved ensemble efficiency by 60% with early stopping"
+3. **Table 5**: "We used the same ensemble strategy and reported actual trials executed"
 4. **Table 8**: "We achieved competitive results with improvements in InceptionV3 (+1.05%)"
 5. **Table 9**: "We achieved superior CBIR performance (+3.17%)"
 6. **Table 10**: "We measured and reported complete training time (4h 48min)"
@@ -276,16 +280,18 @@ we introduced several enhancements to improve training efficiency
 and generalization.
 
 We added Mixup data augmentation (α=0.2), label smoothing (ε=0.1), 
-and vertical flipping to the augmentation pipeline. Our early-stopping 
-random search for ensemble weights achieved the same performance 
-with 60% fewer trials (~800 vs 2000 max), significantly reducing 
-computational cost.
+and vertical flipping to the augmentation pipeline. Our random 
+search ensemble optimization used the same strategy as baseline 
+(max 2000 trials, early stop after 100 non-improving), achieving 
+competitive results with actual ~800 trials executed.
 
 Our implementation achieved competitive classification accuracy 
 (94.80% vs 95.25% baseline, -0.45%). Critically, our CBIR system 
 achieved 0.9840 mAP, surpassing the baseline 0.9538 by 3.17%. 
-Complete training pipeline (4 models + CBIR + ensemble) finished 
-in 4.8 hours with mixed precision on Kaggle P100 GPU."
+Complete training pipeline finished in 4.8 hours with mixed 
+precision on Kaggle P100 GPU."
 ```
 
 ---
+
+**This simple comparison shows EXACTLY what you did vs the paper!** ✅
