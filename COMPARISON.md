@@ -18,7 +18,7 @@
 | Component | Baseline Paper | Our Implementation | Notes |
 |-----------|---------------|-------------------|-------|
 | **DenseNet121** | ✅ Used | ✅ Used | Same architecture |
-| **InceptionV3** | ✅ Used (no BatchNorm) | ✅ **Used + BatchNorm fix** | **+1.05% improvement** |
+| **InceptionV3** | ✅ Used + BatchNorm fix | ✅ **Used + BatchNorm fix** | **+1.05% improvement** |
 | **Xception** | ✅ Used | ✅ Used | Same architecture |
 | **ViT** | ✅ Used | ✅ Used | Same architecture |
 
