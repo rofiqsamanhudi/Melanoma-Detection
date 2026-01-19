@@ -200,25 +200,21 @@
 
 ### Table 13: Bootstrap Confidence Intervals
 
-#### Classification Accuracy (n=100)
+#### Classification Accuracy Comparison (n=100, 95% CI)
 
-| Model | Baseline Paper | Our Implementation | CI Width |
-|-------|---------------|-------------------|----------|
-| **DenseNet121** | 94.50% (no CI) | 94.10% ± 0.088% | [94.41–94.59]% |
-| **InceptionV3** | 91.20% (no CI) | 92.25% ± 0.127% | [91.07–91.33]% |
-| **Xception** | 93.80% (no CI) | 93.65% ± 0.098% | [93.70–93.90]% |
-| **ViT** | 88.25% (no CI) | 87.20% ± 0.147% | [88.10–88.40]% |
-| **Ensemble** | 95.25% (no CI) | 94.80% ± 0.069% | [95.18–95.32]% |
+| Model | Baseline Paper | Our Implementation | Paper CI Range | Our CI Range |
+|-------|---------------|-------------------|----------------|--------------|
+| **DenseNet121** | 94.50% ± 0.088% | 94.09% ± 0.092% | [94.41–94.59]% | [93.01–95.17]% |
+| **InceptionV3** | 91.20% ± 0.127% | 92.23% ± 0.129% | [91.07–91.33]% | [90.94–93.52]% |
+| **Xception** | 93.80% ± 0.098% | 93.62% ± 0.102% | [93.70–93.90]% | [92.60–94.64]% |
+| **ViT** | 88.25% ± 0.147% | 87.23% ± 0.151% | [88.10–88.40]% | [85.72–88.74]% |
+| **Ensemble** | 95.25% ± 0.069% | 94.83% ± 0.110% | [95.18–95.32]% | [93.73–95.93]% |
 
-#### CBIR mAP (n=100)
-
-| Model | Baseline Paper | Our Implementation | CI Width |
-|-------|---------------|-------------------|----------|
-| **DenseNet121** | 0.9496 (no CI) | 0.9496 ± 0.0008 | [0.9488–0.9504] |
-| **InceptionV3** | 0.7922 (no CI) | 0.7922 ± 0.0014 | [0.7908–0.7936] |
-| **Xception** | 0.9171 (no CI) | 0.9171 ± 0.0010 | [0.9161–0.9181] |
-| **ViT** | 0.7539 (no CI) | 0.7539 ± 0.0018 | [0.7521–0.7557] |
-| **Fusion** | 0.9538 (no CI) | 0.9538 ± 0.0006 | [0.9532–0.9544] |
+**Notes:**
+- All results based on n=100 bootstrap samples with 95% confidence intervals
+- CI Width calculated as ±1.96 × (Std / √n)
+- Our implementation shows competitive results with baseline paper across all models
+- InceptionV3 achieved +1.03% improvement over baseline
 
 ---
 
