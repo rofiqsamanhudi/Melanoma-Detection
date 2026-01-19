@@ -1,0 +1,5 @@
+Models,Accuracy,Precision,Recall,F1-Score
+DenseNet121,94.10%,94.28%,93.90%,94.09%
+InceptionV3,92.25%,89.97%,95.10%,92.46%
+Xception,93.65%,93.69%,93.60%,93.65%
+ViT,87.20%,92.37%,81.10%,86.37%

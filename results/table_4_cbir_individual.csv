@@ -1,0 +1,5 @@
+Models,Mean Average Precision (mAP)
+DenseNet121,1.0000
+InceptionV3,0.9975
+Xception,0.9780
+ViT,0.8819
