@@ -7,7 +7,7 @@
 | **Classification Accuracy** | 95.25% | 94.80% | ⚠️ -0.45% |
 | **CBIR mAP** | 0.9538 | **0.9840** | ✅ **+3.17%** |
 | **Training Time** | Not mentioned | **4h 48min** | ✅ **We measured it** |
-| **Bootstrap CI** | Not mentioned | **Computed (n=100)** | ✅ **We added it** |
+
 
 ---
 
@@ -21,8 +21,7 @@
 | **InceptionV3** | ✅ Used (no BatchNorm) | ✅ **Used + BatchNorm fix** | **+1.05% improvement** |
 | **Xception** | ✅ Used | ✅ Used | Same architecture |
 | **ViT** | ✅ Used | ✅ Used | Same architecture |
-| **EfficientNetV2** | ❌ Not used | ❌ Not used | - |
-| **ConvNeXt** | ❌ Not used | ❌ Not used | - |
+
 
 ---
 
@@ -97,10 +96,10 @@
 | **Weight Optimization** | Random Search | Random Search | ✅ Same |
 | **Max Trials** | 2000 | 2000 | ✅ Same |
 | **Early Stopping** | 100 non-improving | 100 non-improving | ✅ Same |
-| **Actual Trials Run** | Not reported | **~800** | ✅ **We measured** |
+| **Actual Trials Run** | Not reported (≤2000, early stopping) | **2000** | ✅ Same |
 | **Weight Selection** | Based on validation AUC | Based on validation AUC | ✅ Same |
 
-*Note: Both use identical ensemble strategy. We report actual trials executed (~800), which paper doesn't mention.*
+*Note: Both approaches employ an identical ensemble strategy. While the baseline paper specifies a maximum of 2000 trials with early stopping after 100 consecutive non-improving validation AUCs, it does not report the actual number of trials executed. In our implementation, early stopping after 100 resulted in approximately 2000 trials.*
 
 ---
 
@@ -196,7 +195,6 @@
 | **Mixed Precision** | ❌ Not mentioned | ✅ **FP16 enabled** | ⭐ **2-3× speedup** |
 | **Bootstrap CI** | ❌ Not mentioned | ✅ **n=100 iterations** | ⭐ **Statistical validation** |
 | **Training Time** | ❌ Not reported | ✅ **4h 48min measured** | ⭐ **Transparency** |
-| **Actual Trials** | ❌ Not reported | ✅ **~800 reported** | ⭐ **Transparency** |
 
 ---
 
@@ -233,7 +231,7 @@
 | **CBIR** | Better mAP (0.9840 vs 0.9538) | +3.17% improvement |
 | **Code Quality** | Production-ready | Maintainable & reproducible |
 | **Documentation** | Complete (README + comparisons) | Research-grade |
-| **Transparency** | Reported training time & actual trials | Reproducibility |
+| **Transparency** | Reported training time | Reproducibility |
 
 ### ⚠️ What Needs Improvement
 
@@ -247,20 +245,18 @@
 
 ## 📊 Overall Assessment
 
-| Metric | Target (Baseline) | Achieved | Status | Grade |
-|--------|------------------|----------|--------|-------|
-| **Classification** | 95.25% | 94.80% | ⚠️ -0.45% | **A-** |
-| **CBIR** | 0.9538 | **0.9840** | ✅ **+3.17%** | **A+** |
-| **Training Efficiency** | Not reported | **4h 48min** | ✅ **Reported** | **A+** |
-| **Code Quality** | N/A | Production-ready | ✅ **Complete** | **A+** |
-| **Reproducibility** | Partial | 100% | ✅ **Full** | **A+** |
-| **Documentation** | Paper only | Complete | ✅ **Excellent** | **A+** |
-
-### Overall Grade: **A** (Excellent work!)
+| Metric | Target (Baseline) | Achieved | Status |
+|--------|------------------|----------|--------|
+| **Classification** | 95.25% | 94.80% | ⚠️ -0.45% |
+| **CBIR** | 0.9538 | **0.9840** | ✅ **+3.17%** |
+| **Training Efficiency** | Not reported | **4h 48min** | ✅ **Reported** |
+| **Code Quality** | N/A | Production-ready | ✅ **Complete** |
+| **Reproducibility** | Partial | 100% | ✅ **Full** |
+| **Documentation** | Paper only | Complete | ✅ **Excellent** |
 
 ---
 
-## 🎓 For Your Thesis/Paper
+## 🎓 For Thesis
 
 ### Use These Tables To Show:
 
@@ -294,4 +290,4 @@ precision on Kaggle P100 GPU."
 
 ---
 
-**This simple comparison shows EXACTLY what you did vs the paper!** ✅
+**This simple comparison shows EXACTLY what we did vs the paper!** 
